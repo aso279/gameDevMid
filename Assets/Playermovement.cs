@@ -1,16 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Playermovement : MonoBehaviour 
 {
 
+	public GameObject object1;
+	public GameObject object2;
+	public GameObject object3;
+	public GameObject object4;
+	public GameObject object5;
+	public GameObject object6;
+
+
 	public float lookSpeed = 300f;
 	public float moveSpeed = 10f;
 	Vector3 inputVector; // pass keyboard data from Update() to FixedUpdate()
+	public Text gametext;
+	public Text counter;
+	public int totalObjects = 6;
+
 
 	// Update is called once per frame, this is where INPUT and RENDERING happens!!!
 	void Update () {
+
+
+		counter.text = "Objects left: " + totalObjects + "/6";
+
+
+
+
 		// mouse look
 
 		// mouseDelta = difference, how fast you're moving your mouse
@@ -65,6 +85,107 @@ public class Playermovement : MonoBehaviour
 		// a better method: move using Rigidbody forces in FixedUpdate(), which won't have same problems
 		inputVector = transform.forward * vertical * moveSpeed; // forward / backward direction
 		inputVector += transform.right * horizontal * moveSpeed; // left / right direction
+
+
+		if (Vector3.Distance(transform.position, object1.transform.position) < 1.5f)  
+		{
+			gametext.text = "Press SPACE to pick up the object";
+			if (Input.GetKeyDown("space"))
+			{	
+				object1.transform.position = new Vector3(50f, 50f, 50f);
+				gametext.text = "You collected the object.";
+				totalObjects -=1;
+			}
+		}
+
+		else if (Vector3.Distance(transform.position, object1.transform.position) > 1.5f) 
+		{
+			//gametext.text = "";
+
+		}
+		if (Vector3.Distance(transform.position, object2.transform.position) < 1.5f)  
+		{
+			gametext.text = "Press SPACE to pick up the object";
+			if (Input.GetKeyDown("space"))
+			{	
+				object2.transform.position = new Vector3(50f, 50f, 50f);
+				gametext.text = "You collected the object.";
+				totalObjects -=1;
+			}
+		}
+
+		else if (Vector3.Distance(transform.position, object2.transform.position) > 1.5f) 
+		{
+			//gametext.text = "";
+
+		}
+
+		if (Vector3.Distance(transform.position, object3.transform.position) < 1.5f)  
+		{
+			gametext.text = "Press SPACE to pick up the object";
+			if (Input.GetKeyDown("space"))
+			{	
+				object3.transform.position = new Vector3(50f, 50f, 50f);
+				gametext.text = "You collected the object.";
+				totalObjects -=1;
+			}
+		}
+
+		else if (Vector3.Distance(transform.position, object3.transform.position) > 1.5f) 
+		{
+			//gametext.text = "";
+
+		}
+		if (Vector3.Distance(transform.position, object4.transform.position) < 1.5f)  
+		{
+			gametext.text = "Press SPACE to pick up the object";
+			if (Input.GetKeyDown("space"))
+			{	
+				object4.transform.position = new Vector3(50f, 50f, 50f);
+				gametext.text = "You collected the object.";
+				totalObjects -=1;
+			}
+		}
+
+		else if (Vector3.Distance(transform.position, object4.transform.position) > 1.5f) 
+		{
+			//gametext.text = "";
+
+		}
+		if (Vector3.Distance(transform.position, object5.transform.position) < 1.5f)  
+		{
+			gametext.text = "Press SPACE to pick up the object";
+			if (Input.GetKeyDown("space"))
+			{	
+				object5.transform.position = new Vector3(50f, 50f, 50f);
+				gametext.text = "You collected the object.";
+				totalObjects -=1;
+			}
+		}
+
+		else if (Vector3.Distance(transform.position, object5.transform.position) > 1.5f) 
+		{
+			//gametext.text = "";
+
+		}
+		if (Vector3.Distance(transform.position, object6.transform.position) < 1.5f)  
+		{
+			gametext.text = "Press SPACE to pick up the object";
+			if (Input.GetKeyDown("space"))
+			{	
+				object6.transform.position = new Vector3(50f, 50f, 50f);
+				gametext.text = "You collected the object.";
+				totalObjects -=1;
+			}
+		}
+
+		else if (Vector3.Distance(transform.position, object6.transform.position) > 1.5f) 
+		{
+			//gametext.text = "";
+
+		}
+
+
 
 	}
 
